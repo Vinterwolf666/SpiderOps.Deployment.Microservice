@@ -16,7 +16,7 @@ spec:
       - name: my-container
         image: us-central1-docker.pkg.dev/$GOOGLE_PROJECT_ID/my-repo/$IMAGE_NAME:$IMAGE_TAG
         ports:
-        - containerPort: 80   #s
+        - containerPort: 80   #ss
 ---
 apiVersion: v1
 kind: Service
