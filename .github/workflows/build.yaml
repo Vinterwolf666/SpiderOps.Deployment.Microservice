@@ -60,5 +60,5 @@ jobs:
       # Paso 8: Actualizar la imagen del Deployment 
       - name: Update Deployment with new image
         run: |
-          kubectl set image deployment/apigateway-ms-app my-container=us-central1-docker.pkg.dev/$GOOGLE_PROJECT_ID/my-repo/$IMAGE_NAME:$IMAGE_TAG
-          kubectl rollout status deployment/apigateway-ms-app
+          kubectl set image deployment/deploy-ms-app my-container=us-central1-docker.pkg.dev/$GOOGLE_PROJECT_ID/my-repo/$IMAGE_NAME:$IMAGE_TAG
+          kubectl rollout status deployment/deploy-ms-app
