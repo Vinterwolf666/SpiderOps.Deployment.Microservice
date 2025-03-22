@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotNetEnv" Version="3.1.1" />
+    <PackageReference Include="Google.Cloud.Container.V1" Version="2.1.0" />
+    <PackageReference Include="KubernetesClient" Version="7.0.15" />
+    <PackageReference Include="LibGit2Sharp" Version="0.31.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+    <PackageReference Include="Octokit" Version="14.0.0" />
+    <PackageReference Include="Sodium.Core" Version="1.3.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Deployment.Microservice.APP\Deployment.Microservice.APP.csproj" />
+  </ItemGroup>
+
+</Project>

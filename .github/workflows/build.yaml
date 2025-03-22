@@ -1,0 +1,64 @@
+name: Build and Deploy to GKE
+
+on:
+  push:
+    branches:
+      - master  # O la rama en la que quieras que se dispare el flujo de trabajo
+
+env:
+  GOOGLE_PROJECT_ID: ${{ secrets.GOOGLE_PROJECT_ID }}
+  GOOGLE_COMPUTE_ZONE: 'us-east1'  # Cambia a la zona de tu GKE sss
+  GOOGLE_CLUSTER_NAME: 'spiderops-cluster-2'  # Nombre de tu clúster de GKE
+  IMAGE_NAME: 'deploy-ms'  # Nombre de tu aplicación
+  IMAGE_TAG: ${{ github.sha }}  # Usamos el commit hash para etiquetar la imagen
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Paso 1: Obtener el código
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Paso 2: Configurar la autenticación de Google Cloud
+      - name: Authenticate with Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GOOGLE_CREDENTIALS }}
+
+      # Paso 3: Construir la imagen Docker
+      - name: Build Docker image
+        run: |
+          docker build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT_ID/my-repo/$IMAGE_NAME:$IMAGE_TAG .
+
+      # Paso 4: Autenticación Docker a Artifact Registry
+      - name: Authenticate Docker to Artifact Registry
+        run: |
+          gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
+
+      # Paso 5: Subir la imagen a Artifact Registry
+      - name: Push Docker image to Artifact Registry
+        run: |
+          docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT_ID/my-repo/$IMAGE_NAME:$IMAGE_TAG
+
+      # Paso 6: Configurar gcloud CLI y obtener credenciales de GKE
+      - name: Set up gcloud CLI
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ secrets.GOOGLE_PROJECT_ID }}
+          install_components: 'kubectl'
+
+      - name: Get GKE credentials
+        run: |
+          gcloud container clusters get-credentials $GOOGLE_CLUSTER_NAME --zone $GOOGLE_COMPUTE_ZONE --project $GOOGLE_PROJECT_ID
+
+      # Paso 7: Crear un Deployment si no existe
+      - name: Create Deployment and Service in GKE
+        run: |
+          kubectl apply -f resources.yaml
+
+      # Paso 8: Actualizar la imagen del Deployment 
+      - name: Update Deployment with new image
+        run: |
+          kubectl set image deployment/apigateway-ms-app my-container=us-central1-docker.pkg.dev/$GOOGLE_PROJECT_ID/my-repo/$IMAGE_NAME:$IMAGE_TAG
+          kubectl rollout status deployment/apigateway-ms-app
