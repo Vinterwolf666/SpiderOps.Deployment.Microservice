@@ -23,5 +23,10 @@ namespace Deployment.Microservice.Domain
 
         public string REGION { get; set; }
         public DateTime CREATED_AT { get; set; }
+
+
+        public string APPNAME { get; set; }
+
+        public string CLUSTER_NAME { get; set; }
     }
 }

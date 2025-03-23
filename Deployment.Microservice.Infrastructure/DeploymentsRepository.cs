@@ -89,7 +89,8 @@ namespace Deployment.Microservice.Infrastructure
             repo.DEPLOYMENT_NAME = repoName;
             repo.CREATED_AT = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("SA Pacific Standard Time"));
             repo.DEPLOYMENT_STATUS = "Active";
-
+            repo.APPNAME = appname;
+            repo.CLUSTER_NAME = cluster_name;
             string localPath = Path.Combine(Path.GetTempPath(), repo.DEPLOYMENT_NAME);
             Console.WriteLine($"[INFO] Local Path: {localPath}");
 
