@@ -3420,6 +3420,20 @@
         "runtime": {
           "bin/placeholder/Deployment.Microservice.Infrastructure.dll": {}
         }
+      },
+      "Deployment.Microservice.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Deployment.Microservice.APP": "1.0.0",
+          "Deployment.Microservice.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Deployment.Microservice.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Deployment.Microservice.Service.dll": {}
+        }
       }
     }
   },
@@ -9762,6 +9776,11 @@
       "type": "project",
       "path": "../Deployment.Microservice.Infrastructure/Deployment.Microservice.Infrastructure.csproj",
       "msbuildProject": "../Deployment.Microservice.Infrastructure/Deployment.Microservice.Infrastructure.csproj"
+    },
+    "Deployment.Microservice.Service/1.0.0": {
+      "type": "project",
+      "path": "../Deployment.Microservice.Service/Deployment.Microservice.Service.csproj",
+      "msbuildProject": "../Deployment.Microservice.Service/Deployment.Microservice.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -9769,6 +9788,7 @@
       "Deployment.Microservice.APP >= 1.0.0",
       "Deployment.Microservice.Domain >= 1.0.0",
       "Deployment.Microservice.Infrastructure >= 1.0.0",
+      "Deployment.Microservice.Service >= 1.0.0",
       "DotNetEnv >= 3.1.1",
       "Google.Cloud.Container.V1 >= 2.1.0",
       "KubernetesClient >= 7.0.15",
@@ -9823,6 +9843,9 @@
             },
             "C:\\Users\\juanl\\Documents\\SpiderOps\\Customer.Deployment.Microservice\\Deployment.Microservice.Infrastructure\\Deployment.Microservice.Infrastructure.csproj": {
               "projectPath": "C:\\Users\\juanl\\Documents\\SpiderOps\\Customer.Deployment.Microservice\\Deployment.Microservice.Infrastructure\\Deployment.Microservice.Infrastructure.csproj"
+            },
+            "C:\\Users\\juanl\\Documents\\SpiderOps\\Customer.Deployment.Microservice\\Deployment.Microservice.Service\\Deployment.Microservice.Service.csproj": {
+              "projectPath": "C:\\Users\\juanl\\Documents\\SpiderOps\\Customer.Deployment.Microservice\\Deployment.Microservice.Service\\Deployment.Microservice.Service.csproj"
             }
           }
         }

@@ -1,60 +1,45 @@
 ﻿using Infrastructure.Microservice.APP;
 using Infrastructure.Microservice.Domain;
+using Infrastructure.Microservice.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastructure.Microservice.Infrastructure
+namespace Deployment.Microservice.Infrastructure
 {
     public class GCPTemplatesRepository : IGCPTemplatesRepository
     {
         private readonly GCPTemplatesDBContext _dbContext;
+
         public GCPTemplatesRepository(GCPTemplatesDBContext dbContext)
         {
-
             _dbContext = dbContext;
-
         }
+
         public List<GCPTemplates> AllTemplates()
         {
-            var result = _dbContext.GCPTemplatesDomain.ToList();
-
-            return result;
+            return _dbContext.GCPTemplatesDomain.ToList();
         }
 
-        public async Task<string> RemoveTemplate(int id)
+        public async Task<GCPTemplates> GetTemplateById(int id)
         {
-            var temp = await _dbContext.GCPTemplatesDomain.FirstOrDefaultAsync(a => a.ID == id);
-
-            if(temp != null)
-            {
-                _dbContext.GCPTemplatesDomain.Remove(temp);
-                await _dbContext.SaveChangesAsync();
-
-                return "Template removed successfully";
-            }
-            else
-            {
-                return "Template not found";
-            }
+            return await _dbContext.GCPTemplatesDomain.FirstOrDefaultAsync(a => a.ID == id);
         }
 
-        public async Task<string> SaveNewTemplate(string template_name, byte[] terraform_file, string des)
+        public async Task<string> AddTemplate(GCPTemplates template)
         {
-            var template = new GCPTemplates();
-
-            template.TEMPLATE_NAME = template_name;
-            template.CREATED_AT = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("SA Pacific Standard Time"));
-            template.TERRAFORM_FILE = terraform_file;
-            template.DESCRIPTIONS = des;
-
             _dbContext.GCPTemplatesDomain.Add(template);
             await _dbContext.SaveChangesAsync();
+            return $"Template saved with the following name: {template.TEMPLATE_NAME}";
+        }
 
-            return $"Template saved with the following ID: {template_name}";
+        public async Task<string> RemoveTemplate(GCPTemplates template)
+        {
+            _dbContext.GCPTemplatesDomain.Remove(template);
+            await _dbContext.SaveChangesAsync();
+            return "Template removed successfully";
         }
     }
 }

@@ -6,6 +6,8 @@ using DotNetEnv;
 using Infrastructure.Microservice.Domain;
 using Infrastructure.Microservice.Infrastructure;
 using Infrastructure.Microservice.APP;
+using Deployment.Microservice.Service;
+using GCPInfrastructureServices = Deployment.Microservice.APP.GCPInfrastructureServices;
 
 namespace Deployment.Microservice.API
 {

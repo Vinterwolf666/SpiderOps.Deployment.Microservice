@@ -10,17 +10,13 @@ using System.Threading.Tasks;
 namespace Deployment.Microservice.APP
 {
     public interface IPipelinesRepository
-    {        
-        Task<FileContentResult> DownloadPipeline(int id, string file_name);
-
+    {
 
         List<Pipelines> AllPipelinesByID(int customer_id);
-
-
+        Task<Pipelines> GetPipelineByID(int id);
         Task<string> RemovePipelinesByID(int id);
-
-
-        Task<string> UploadPipeline(int customer_id, IFormFile yaml_file, string cloud, string project_language, string descriptions, string appname, string cluster_name, string ArtifactRegistryName, string REGION);
+        Task<FileContentResult> DownloadPipeline(int id, string file_name);
+        Task<string> UploadPipeline(int customer_id, IFormFile yamlFile, string cloud, string project_language, string descriptions, string appname, string cluster_name, string ArtifactRegistryName, string REGION);
 
     }
 }

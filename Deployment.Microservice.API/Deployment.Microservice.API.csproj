@@ -26,6 +26,7 @@
     <ProjectReference Include="..\Customer.Deployment.Microservice\Deployment.Microservice.Domain.csproj" />
     <ProjectReference Include="..\Deployment.Microservice.APP\Deployment.Microservice.APP.csproj" />
     <ProjectReference Include="..\Deployment.Microservice.Infrastructure\Deployment.Microservice.Infrastructure.csproj" />
+    <ProjectReference Include="..\Deployment.Microservice.Service\Deployment.Microservice.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+Nk1L36ZwYNyyNGU9sp8x44rhSMHKVF2Xk1sdVBnTiRFefy6IJ0QTsYPpedTio5hqw3bRZwlXnULnbWJ0WQo9Q==",
+  "dgSpecHash": "NqOm1OgP1yErFtVJ2HlSmUtzfuejfaj9NkakzReNLLB0O8U717Xd0ceqmZMDqrlAc/tBfrq4Z4KRpS95dOdhYQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\juanl\\Documents\\SpiderOps\\Customer.Deployment.Microservice\\Deployment.Microservice.Test\\Deployment.Microservice.Test.csproj",
   "expectedPackageFiles": [

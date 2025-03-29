@@ -216,7 +216,6 @@ C:\Users\juanl\Documents\SpiderOps\Customer.Deployment.Microservice\Deployment.M
 C:\Users\juanl\Documents\SpiderOps\Customer.Deployment.Microservice\Deployment.Microservice.API\obj\Debug\net7.0\Deployment.Microservice.API.AssemblyInfoInputs.cache
 C:\Users\juanl\Documents\SpiderOps\Customer.Deployment.Microservice\Deployment.Microservice.API\obj\Debug\net7.0\Deployment.Microservice.API.AssemblyInfo.cs
 C:\Users\juanl\Documents\SpiderOps\Customer.Deployment.Microservice\Deployment.Microservice.API\obj\Debug\net7.0\Deployment.Microservice.API.csproj.CoreCompileInputs.cache
-C:\Users\juanl\Documents\SpiderOps\Customer.Deployment.Microservice\Deployment.Microservice.API\obj\Debug\net7.0\Deployment.Microservice.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\juanl\Documents\SpiderOps\Customer.Deployment.Microservice\Deployment.Microservice.API\obj\Debug\net7.0\Deployment.Microservice.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\juanl\Documents\SpiderOps\Customer.Deployment.Microservice\Deployment.Microservice.API\obj\Debug\net7.0\staticwebassets\msbuild.Deployment.Microservice.API.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\juanl\Documents\SpiderOps\Customer.Deployment.Microservice\Deployment.Microservice.API\obj\Debug\net7.0\staticwebassets\msbuild.build.Deployment.Microservice.API.props
@@ -413,3 +412,5 @@ C:\Users\juanl\Downloads\Customer.Deployment.Microservice\Deployment.Microservic
 C:\Users\juanl\Downloads\Customer.Deployment.Microservice\Deployment.Microservice.API\obj\Debug\net7.0\Deployment.Microservice.API.pdb
 C:\Users\juanl\Downloads\Customer.Deployment.Microservice\Deployment.Microservice.API\obj\Debug\net7.0\Deployment.Microservice.API.genruntimeconfig.cache
 C:\Users\juanl\Downloads\Customer.Deployment.Microservice\Deployment.Microservice.API\obj\Debug\net7.0\ref\Deployment.Microservice.API.dll
+C:\Users\juanl\Documents\SpiderOps\Customer.Deployment.Microservice\Deployment.Microservice.API\bin\Debug\net7.0\Deployment.Microservice.Service.dll
+C:\Users\juanl\Documents\SpiderOps\Customer.Deployment.Microservice\Deployment.Microservice.API\bin\Debug\net7.0\Deployment.Microservice.Service.pdb

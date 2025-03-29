@@ -9,10 +9,12 @@ namespace Infrastructure.Microservice.APP
 {
     public interface IGCPTemplatesRepository
     {
-        Task<string> SaveNewTemplate(string template_name, byte[] terraform_file, string des);
-
-        Task<string> RemoveTemplate(int id);
-
         List<GCPTemplates> AllTemplates();
+
+        Task<GCPTemplates> GetTemplateById(int id);
+
+        Task<string> AddTemplate(GCPTemplates template);
+
+        Task<string> RemoveTemplate(GCPTemplates template);
     }
 }

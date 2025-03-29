@@ -9,19 +9,15 @@ namespace Deployment.Microservice.APP
 {
     public interface IDeploymentsRepository
     {
-        Task<string> NewDeployment(string BASE_GITHUB_URL, int CUSTOMER_ID, string REGION, int template_id, string cluster_name, string ArtifactRegistryName, string appname, string language, string CLUSTER_NAME, string ARTIFACT_REGISTRY_REGION, string ARTIFACT_REGISTRY, int customer_id);
-
-      //  Task<string> RemoveDeployment(int id, string deploymentName, string cluster, string zone, string project);
-
-        Task<string> RemoveDeploymentID(int id);
-
         List<Deployments> AllDeploymentsById(int id);
 
-        Task<string> TriggerPipelineCommit(string repoUrl);
+        Task<string> SaveDeployment(Deployments d);
 
-        
+        Task<string> DeleteDeployment(int id);
 
-       
+
+        List<Deployments> GetDeploymentById(int id);
+
 
 
     }
