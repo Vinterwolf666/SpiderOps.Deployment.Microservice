@@ -2318,6 +2318,7 @@
           "Deployment.Microservice.APP": "1.0.0",
           "Deployment.Microservice.Domain": "1.0.0",
           "Deployment.Microservice.Infrastructure": "1.0.0",
+          "Deployment.Microservice.Service": "1.0.0",
           "DotNetEnv": "3.1.1",
           "Google.Cloud.Container.V1": "2.1.0",
           "KubernetesClient": "7.0.15",
@@ -2369,6 +2370,15 @@
         },
         "runtime": {
           "Deployment.Microservice.Infrastructure.dll": {}
+        }
+      },
+      "Deployment.Microservice.Service/1.0.0": {
+        "dependencies": {
+          "Deployment.Microservice.APP": "1.0.0",
+          "Deployment.Microservice.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "Deployment.Microservice.Service.dll": {}
         }
       }
     }
@@ -3830,6 +3840,11 @@
       "sha512": ""
     },
     "Deployment.Microservice.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Deployment.Microservice.Service/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

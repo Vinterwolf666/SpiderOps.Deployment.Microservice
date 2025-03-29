@@ -456,3 +456,5 @@ C:\Users\juanl\Downloads\Customer.Deployment.Microservice\Deployment.Microservic
 C:\Users\juanl\Downloads\Customer.Deployment.Microservice\Deployment.Microservice.Test\obj\Debug\net7.0\Deployment.Microservice.Test.pdb
 C:\Users\juanl\Downloads\Customer.Deployment.Microservice\Deployment.Microservice.Test\obj\Debug\net7.0\Deployment.Microservice.Test.genruntimeconfig.cache
 C:\Users\juanl\Downloads\Customer.Deployment.Microservice\Deployment.Microservice.Test\obj\Debug\net7.0\ref\Deployment.Microservice.Test.dll
+C:\Users\juanl\Documents\SpiderOps\Customer.Deployment.Microservice\Deployment.Microservice.Test\bin\Debug\net7.0\Deployment.Microservice.Service.dll
+C:\Users\juanl\Documents\SpiderOps\Customer.Deployment.Microservice\Deployment.Microservice.Test\bin\Debug\net7.0\Deployment.Microservice.Service.pdb
