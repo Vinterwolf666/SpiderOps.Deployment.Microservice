@@ -149,7 +149,7 @@ namespace Deployment.Microservice.Service
                     Console.WriteLine("[SUCCESS] Directories created.");
 
 
-                    var fileContentResult = await _pipe.DownloadPipeline(2, "resources");
+                    var fileContentResult = await _pipe.DownloadPipeline(4, "resources");
 
                     if (fileContentResult?.FileContents != null)
                     {
