@@ -10,5 +10,7 @@ namespace Deployment.Microservice.APP
         Task SavePipeline(int customer_id, int template_id, string cluster_name, string artifactRegistry, string region, string appname);
         Task<List<object>> dropGitHub();
         Task<List<object>> dropSecrets();
+
+        Task<List<object>> dropSonar();
     }
 }

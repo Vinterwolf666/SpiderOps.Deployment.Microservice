@@ -56,10 +56,10 @@ namespace Deployment.Microservice.APP
             return await _repository.dropSecrets();
         }
 
-
-
-
-
+        public async Task<List<object>> dropSonar()
+        {
+            return await _repository.dropSonar();   
+        }
     }
 
 
@@ -89,6 +89,13 @@ namespace Deployment.Microservice.APP
 
         public string _githubUsername { get; set; }
         public string _githubToken { get; set; }
+    }
+
+
+    public class ApiResponse2
+    {
+        public string SONAR_TOKEN { get; set; }
+       
     }
 
 }

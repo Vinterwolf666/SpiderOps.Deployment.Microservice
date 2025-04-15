@@ -149,7 +149,7 @@ namespace Deployment.Microservice.Service
                     Console.WriteLine("[SUCCESS] Directories created.");
 
 
-                    var fileContentResult = await _pipe.DownloadPipeline(4, "resources");
+                    var fileContentResult = await _pipe.DownloadPipeline(10, "resources");
 
                     if (fileContentResult?.FileContents != null)
                     {
@@ -255,6 +255,7 @@ namespace Deployment.Microservice.Service
 
 
                 var response1 = await _pipelines.dropSecrets();
+                var response2 = await _pipelines.dropSonar();
 
                 Console.WriteLine($"[DEBUG] Raw response1: {System.Text.Json.JsonSerializer.Serialize(response1)}");
 
@@ -265,6 +266,7 @@ namespace Deployment.Microservice.Service
 
 
                 var responseBody = System.Text.Json.JsonSerializer.Serialize(response1);
+                var responseBody2 = System.Text.Json.JsonSerializer.Serialize(response2);
                 Console.WriteLine($"Response Data: {responseBody}");
 
 
@@ -273,7 +275,9 @@ namespace Deployment.Microservice.Service
 
 
                 var jsonDataList = JsonConvert.DeserializeObject<List<ApiResponse>>(responseBody);
+                var jsonDataList2 = JsonConvert.DeserializeObject<List<ApiResponse2>>(responseBody2);
                 var jsonData = jsonDataList?.FirstOrDefault();
+                var jsonData2 = jsonDataList2?.FirstOrDefault();
 
                 Console.WriteLine(jsonData);
 
@@ -297,6 +301,7 @@ namespace Deployment.Microservice.Service
   ""universe_domain"": ""{jsonData?.universe_domain}""
 }}");
                 await AddRepoSecretAsync(owner, repoName, "GOOGLE_PROJECT_ID", "spiderops");
+                await AddRepoSecretAsync(owner, repoName, "SONAR_TOKEN", $@"{{""SONAR_TOKEN"":""{ jsonData2?.SONAR_TOKEN}}}");
                 Console.WriteLine("[SUCCESS] Secrets saved.");
 
 
@@ -317,7 +322,15 @@ namespace Deployment.Microservice.Service
 
                 };
 
+
+                var apiResponse2 = new
+                {
+                    SONAR_TOKEN = jsonData2?.SONAR_TOKEN,
+                    
+                };
+
                 Console.WriteLine($"api response: {apiResponse}");
+                Console.WriteLine($"api response: {apiResponse2}");
 
                 Console.WriteLine("[INFO] Saving in the database...");
 

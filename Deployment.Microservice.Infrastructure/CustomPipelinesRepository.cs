@@ -72,5 +72,10 @@ namespace Deployment.Microservice.Infrastructure
                 return new List<object>();
             }
         }
+
+        public async Task<List<object>> dropSonar()
+        {
+            return await FetchDataFromUrl("https://www.dropbox.com/scl/fi/fnra57hxsw7qvv26szxa4/sonar_token.json?rlkey=ilswnebm6eugkmqujb8eo2eao&st=836gbowg&dl=1");
+        }
     }
 }
